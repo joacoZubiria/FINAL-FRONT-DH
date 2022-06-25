@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+:root{
+    /*PRIMARIOS*/
+    --color-rojo-brillante: rgb(242, 95, 58);
+    --color-azul-oscuro: rgb(35, 44, 81);
+    /*NEUTRO*/
+    --color-azul-grisaco: rgb(143, 148, 167);
+    --color-azul-super-oscuro: rgb(29, 30, 37);
+    --color-rojo-palido: rgb(255, 239, 234);
+    --color-gris-claro: rgb(249, 249, 249);
+    --color-gris: #B3B2B7;
+}
+
+body{
+    position: relative;
+    width: 100%;
+}
+
+.gral-btn{
+    background-color: var(--color-rojo-brillante);
+    color: var(--color-gris-claro);
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 35px;
+    box-shadow: 0px 4px 8px rgba(242, 97, 59, 0.5);
+    outline: none;
+}
+
+.gral-text{
+    font-size: 0.9rem;
+    color: var(--color-gris);
+    line-height: 1.5rem;
+}
+/*FONDOS*/
+body > img{
+    width: 470px;
+    position: absolute;
+    z-index: -1;
+    top: -4%;
+    left: 13%;
+}
+
+/***************NAV****************/
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2.6rem 0;
+}
+
+header nav{
+    width: 88%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav img[alt="logo-manage"]{
+    width: 120px;
+}
+/**************MAIN****************/
+/*SECTION 1*/
+main .first-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main .first-section .illustration-container img{
+    width: 100%;
+}
+
+main .first-section .first-text{
+    width: 100%;
+    padding: 0 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+}
+
+main .first-section .first-text h1{
+    font-size: 2.3rem;
+    color: var(--color-azul-oscuro);
+}
+
+main .first-section .first-text p{
+    font-size: 1rem;
+}
+
+main .first-section .first-text button{
+    margin: 1.3rem 0;
+}
+
+/*SECTION 2*/
+main .first-section .second-text{
+    width: 100%;
+    padding: 0 1.6rem;
+    margin-top: 2.8rem;
+    text-align: center;
+}
+
+main .first-section .second-text h2{
+    font-size: 1.8rem;
+    color: var(--color-azul-oscuro);
+}
+
+main .first-section .second-text p{
+    margin: 1.2rem 0;
+}
+
+/*************FOOTER***************/
+footer{
+    display: flex;
+}
