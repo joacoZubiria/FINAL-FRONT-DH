@@ -26,6 +26,10 @@ body{
     width: 100%;
 }
 
+body *{
+    overflow-y: hidden;
+}
+
 .gral-btn{
     background-color: var(--color-rojo-brillante);
     color: var(--color-gris-claro);
@@ -65,7 +69,9 @@ header{
     justify-content: center;
     padding: 2.6rem 0;
 }
-
+header nav > ul, header nav > button {
+    display: none;
+}
 header nav{
     width: 88%;
     display: flex;
@@ -74,7 +80,7 @@ header nav{
 }
 
 header nav img[alt="logo-manage"]{
-    width: 120px;
+    width: 7.5rem;
 }
 /**************MAIN****************/
 /*SECTION 1*/
@@ -86,8 +92,12 @@ main .first-section{
     flex-direction: column;
 }
 
-main .first-section .illustration-container img{
+main .first-section .illustration-container{
     width: 100%;
+    text-align: center;
+}
+main .first-section .illustration-container img{
+    max-width: 400px;
 }
 
 main .first-section .first-text{
@@ -179,8 +189,11 @@ main .second-section > h1{
 
 main .second-section .slider{
     width: 100%;
-    position: relative;
     height: 360px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main .second-section .slider > div{
@@ -205,6 +218,10 @@ main .second-section .slider > div > h6{
     margin: 1.4rem 0; 
 } 
 
+main .second-section .slider > div > p{
+    max-width: 20rem;
+    text-align: center;
+} 
 main .second-section > aside{
     width: 100%;
     display: flex;
@@ -254,7 +271,6 @@ main .third-section > button{
     background-color: var(--color-gris-claro);
     color: var(--color-rojo-brillante);
 }
-/* ~ */
 /*************FOOTER***************/
 footer{
     display: flex;
@@ -329,4 +345,40 @@ footer > p{
     color: var(--color-gris);
     font-size: 0.7rem;
     margin-bottom: 1.4rem;
+}
+
+@media (min-width: 1400px) {
+    /*NAV*/
+    header{
+        width: 100%;
+    }
+    
+    header nav{
+        width: 80%;
+    }
+
+    header nav img[alt="icon-hamburger"]{
+        display: none;
+    }
+
+    header nav img[alt="logo-manage"]{
+        width: 9.5rem;
+    }
+
+    header nav > ul, header nav > button {
+        display: block;
+    }
+
+    header nav > button{
+        margin: 0.6rem 0;
+    }
+    
+    header nav > ul {
+        display: flex;
+        gap: 3rem;
+        color: var(--color-azul-oscuro);
+    }
+
+    /*MAIN*/
+    
 }
