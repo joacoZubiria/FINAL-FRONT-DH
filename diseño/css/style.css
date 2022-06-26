@@ -174,9 +174,19 @@ main .second-section > div{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin: 2rem 0;
+    transition: all 0.5s;
 }
 
+main .second-section > div > img{
+    width: 70px;
+}
+
+main .second-section > div > h6{
+    margin: 1.4rem 0; 
+} 
+
+/* ~ */
 /*************FOOTER***************/
 footer{
     display: flex;
