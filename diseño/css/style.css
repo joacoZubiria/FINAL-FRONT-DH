@@ -193,6 +193,7 @@ main .second-section .slider > div{
     justify-content: center;
     align-items: center;
     margin: 3rem 0;
+    opacity: 0;
     transition: all 0.5s;
 }
 
@@ -218,10 +219,6 @@ main .second-section > aside > a{
     height: 8px;
     border: 1px solid var(--color-rojo-brillante);
     border-radius: 100px;
-}
-
-main .second-section > aside > a:focus{
-    background-color: var(--color-rojo-brillante);
 }
 
 main .second-section > button{

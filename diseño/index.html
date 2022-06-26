@@ -136,5 +136,26 @@
         </div>
         <p>Copyright 2020. All Rights Reserved</p>
     </footer>
+
+    <script>
+        let $btns = document.querySelectorAll('aside > a');
+        let $sliders = document.querySelectorAll('.second-section > .slider > div');
+        $sliders[0].style.opacity = '1';
+        $btns[0].style.backgroundColor = 'var(--color-rojo-brillante)';
+        $btns.forEach(element => {
+            element.addEventListener('click', e =>{
+                e.preventDefault();
+                $btns.forEach(ele => {
+                    ele.style.backgroundColor = '#fff';
+                })
+                e.target.style.backgroundColor = 'var(--color-rojo-brillante)';
+                $sliders.forEach(slide => {
+                    console.log(e.target.href)
+                    if(e.target.href.includes(slide.id)) slide.style.opacity = '1'
+                    else slide.style.opacity = '0'
+                })
+            });
+        });
+    </script>
 </body>
 </html>
