@@ -104,6 +104,7 @@
         </section>
         <section class="third-section">
             <img src="src/bg-simplify-section-mobile.svg" alt="">
+            <img src="src/bg-simplify-section-desktop.svg" alt="">
             <h1>Simplify how your team works today.</h1>
             <button class="gral-btn">Get Started</button>
         </section>
@@ -111,8 +112,9 @@
     <footer>
         <div class="form-container">
             <form>
-                <input type="email" placeholder="Updates in your inbox...">
+                <input type="email" placeholder="Updates in your inbox..." pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$">
                 <input type="submit" value="GO" class="gral-btn">
+                <p>Please insert a valid email.</p>
             </form>
         </div>
         <div class="list-container">
@@ -132,6 +134,7 @@
                 </ul>
             </div>
         </div>
+        <div class="logos">
         <div class="icons-container">
             <img src="src/icon-facebook.svg" alt="facebook">
             <img src="src/icon-youtube.svg" alt="youtube">
@@ -142,28 +145,50 @@
         <div class="logo-container">
             <img src="src/logo-footer.png" alt="logo-manage">
         </div>
-        <p>Copyright 2020. All Rights Reserved</p>
+        </div>
+        <p>Copyright 2020. All Rights Reserved.</p>
     </footer>
 
     <script>
         let $btns = document.querySelectorAll('aside > a');
         let $sliders = document.querySelectorAll('.second-section > .slider > div');
-        $sliders[0].style.opacity = '1';
-        $btns[0].style.backgroundColor = 'var(--color-rojo-brillante)';
-        $btns.forEach(element => {
-            element.addEventListener('click', e =>{
-                e.preventDefault();
-                $btns.forEach(ele => {
-                    ele.style.backgroundColor = '#fff';
-                })
-                e.target.style.backgroundColor = 'var(--color-rojo-brillante)';
-                $sliders.forEach(slide => {
-                    console.log(e.target.href)
-                    if(e.target.href.includes(slide.id)) slide.style.opacity = '1'
-                    else slide.style.opacity = '0'
-                })
-            });
+        let $aside = document.querySelector('aside');
+        let mql = window.matchMedia('(min-width:1440px)');
+        if(window.innerWidth < 1440){
+            restart()
+        }
+        function match(e){
+            console.log(e.matches)
+            $sliders[0].style.opacity = '1';
+            $sliders[1].style.opacity = '1';
+            $sliders[2].style.opacity = '1';
+            $sliders[3].style.opacity = '0';  
+            if(e.matches === false) restart();
+        }
+        function restart(){
+            $sliders[0].style.opacity = '1';
+            $sliders[1].style.opacity = '0';
+            $sliders[2].style.opacity = '0';
+            $sliders[3].style.opacity = '0';    
+            $btns[0].style.backgroundColor = 'var(--color-rojo-brillante)';
+            $btns[1].style.backgroundColor = 'white';
+            $btns[2].style.backgroundColor = 'white';
+            $btns[3].style.backgroundColor = 'white';
+            $btns.forEach(element => {
+        element.addEventListener('click', e =>{
+            e.preventDefault();
+            $btns.forEach(ele => {
+                ele.style.backgroundColor = '#fff';
+            })
+            e.target.style.backgroundColor = 'var(--color-rojo-brillante)';
+            $sliders.forEach(slide => {
+                if(e.target.href.includes(slide.id)) slide.style.opacity = '1'
+                else slide.style.opacity = '0'
+            })
         });
+        });
+        }
+        mql.addListener(match);
     </script>
 </body>
 </html>

@@ -12,6 +12,7 @@
 :root{
     /*PRIMARIOS*/
     --color-rojo-brillante: rgb(242, 95, 58);
+    --color-rojo-brillante-hover: rgb(243, 160, 139);
     --color-azul-oscuro: rgb(35, 44, 81);
     /*NEUTRO*/
     --color-azul-grisaco: rgb(143, 148, 167);
@@ -33,12 +34,20 @@ body *{
 .gral-btn{
     background-color: var(--color-rojo-brillante);
     color: var(--color-gris-claro);
+    position: relative;
     font-size: 0.8rem;
     padding: 0.8rem 1.6rem;
     border: none;
     border-radius: 35px;
     box-shadow: 0px 4px 8px rgba(242, 97, 59, 0.5);
     outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s ;
+    z-index: 1;
+}
+
+.gral-btn:hover{
+    background-color: var(--color-rojo-brillante-hover);
 }
 
 .gral-text{
@@ -81,6 +90,7 @@ header nav{
 
 header nav img[alt="logo-manage"]{
     width: 7.5rem;
+    cursor: pointer;
 }
 /**************MAIN****************/
 /*SECTION 1*/
@@ -261,6 +271,11 @@ main .third-section > img{
     left: 0;
 }
 
+main .third-section > img:nth-child(2){
+    position: absolute;
+    display: none;
+}
+
 main .third-section > h1{
     font-size: 2.3rem;
     color: var(--color-gris-claro);
@@ -299,6 +314,22 @@ footer .form-container input[type="email"]{
     outline: none;
 } 
 
+footer .form-container > form > p{
+    display: none;
+    font-size: 0.6rem;
+}
+
+footer .form-container input[type="email"]:invalid:not(:focus):not(:placeholder-shown){
+    border: 1px solid red;
+    color: red;
+}
+
+footer .form-container input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ p{
+    display: block;
+    color: red;
+    padding: 0.5rem;
+}
+
 footer .form-container .gral-btn{
     box-shadow: none;
 }
@@ -317,6 +348,10 @@ footer .list-container > div:nth-child(1){
 footer .list-container > div > ul > li{
     margin: 0.8rem 0;
     font-size: 0.9rem;
+}
+
+footer .logos{
+    width: 100%;
 }
 
 footer .icons-container{
@@ -347,7 +382,18 @@ footer > p{
     margin-bottom: 1.4rem;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
+    body > img.first-cilindre{
+        width: 42rem;
+        top: -5%;
+        left: 57%;
+    }
+    
+    body > img.second-cilindre{
+        width: 42rem;
+        top: 41%;
+        left: -22%;
+    }
     /*NAV*/
     header{
         width: 100%;
@@ -355,6 +401,7 @@ footer > p{
     
     header nav{
         width: 80%;
+        margin-bottom: 2.5rem;
     }
 
     header nav img[alt="icon-hamburger"]{
@@ -370,15 +417,221 @@ footer > p{
     }
 
     header nav > button{
-        margin: 0.6rem 0;
+        margin: 0.6rem;
     }
     
     header nav > ul {
         display: flex;
         gap: 3rem;
+    }
+
+    header nav > ul > li{
         color: var(--color-azul-oscuro);
+        transition: color 0.2s;
+        cursor: pointer;
+    }
+
+    header nav > ul > li:hover{
+        color: var(--color-azul-grisaco);
     }
 
     /*MAIN*/
+    /*SECTION 1*/
+    main .first-section{
+        width: 80%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto 2rem auto;
+    }
     
+    main .first-section > div {
+        flex-basis: 50%;
+    }
+
+    main .first-section > div:nth-child(1){
+        order: 2;
+    }
+    main .first-section > div:nth-child(2){
+        order: 1;
+    }
+    main .first-section > div:nth-child(3){
+        order: 3;
+    }
+    main .first-section > div:nth-child(4){
+        order: 4;
+    }
+
+    main .first-section .first-text, 
+    main .first-section .illustration-container{
+        margin-bottom: 6.5rem;
+    }
+
+    main .first-section .illustration-container > img{
+        max-width: 30rem;
+    }
+
+    main .first-section .first-text{
+        text-align: start;
+        align-items: start;
+        justify-content: start;
+        padding-right: 5.5rem;
+    }
+
+    main .first-section .first-text > h1{
+        font-size: 3.2rem;
+        max-width: 28rem;
+    }
+
+    main .first-section .first-text > p{
+        max-width: 22rem;
+        margin: 1.2rem 0 1.7rem 0;
+    }
+
+    main .first-section .first-text > button{
+        margin: 0;
+    }
+
+    main .first-section .second-text{
+        text-align: start;
+    }
+
+    main .first-section .second-text h2{
+        font-size: 2.2rem;
+        max-width: 26rem;
+    }
+
+    main .first-section .second-text p{
+        max-width: 32rem;
+    }
+
+    main .first-section .third-text div{
+        max-width: 42rem;
+    }
+
+    main .first-section .third-text div:nth-child(1){
+        margin-top: 0;
+    }
+
+    main .first-section .third-text div > div > button{
+        box-shadow: none;
+    }
+
+    /*SECTION 2*/
+    main .second-section aside{
+        display: none;
+    }
+
+    main .second-section > .slider > div{
+        position: static;
+        opacity: 1;
+    }
+
+    main .second-section > .slider > div:nth-child(4){
+        display: none;
+    }
+
+    main .second-section .gral-btn{
+        margin: 0 0 8rem 0;
+    }
+
+    /*SECTION 3*/
+    main .third-section{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: start;
+        padding: 3rem 8.2rem;
+    }
+
+    main .third-section h1{
+        position: relative;
+        width: 28rem;
+        z-index: 1;
+    }
+
+    main .third-section > button:hover{
+        background-color: white;
+        color: var(--color-rojo-brillante-hover);
+    }
+
+    main .third-section > img:nth-child(1){
+        display: none;
+    }
+
+    main .third-section > img:nth-child(2){
+        width: 100%;
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    /*FOOTER*/
+    footer{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding: 2.8rem 8%;
+    }
+
+    footer .form-container{
+        order: 2;
+        align-self: flex-start;
+        justify-content: flex-end;
+        padding: 0;
+        padding-top: 1rem;
+        flex: 0 1 63%;
+    }
+
+    footer .list-container{
+        order: 1;
+        flex-grow: 1;
+    }
+
+    footer .list-container > div > ul >  li{
+        width: fit-content;
+        margin: 1.2rem 0;
+        transition: color 0.2s;
+        cursor: pointer;
+    }
+
+    footer .list-container > div > ul >  li:hover{
+        color: var(--color-rojo-brillante);
+    }
+
+    footer .logos{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2.5rem;
+        text-align: start;
+        flex: 0 1 50%;
+    }
+
+    footer .logos .icons-container{
+        justify-content: start;
+        width: 11rem;
+        gap: 1rem;
+    }
+
+    footer .logos .icons-container > img{
+        cursor: pointer;
+    }
+
+    footer .logos .icons-container > img:hover{
+        filter: invert(42%) sepia(64%) saturate(1363%) hue-rotate(338deg) brightness(99%) contrast(92%);
+    }
+
+    footer .logos .logo-container{
+        padding: 0;
+        text-align: start;
+    }
+
+    footer > p{
+        position: absolute;
+        bottom: 20%;
+        right: 8%;
+    } 
 }
