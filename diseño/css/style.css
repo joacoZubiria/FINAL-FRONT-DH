@@ -17,6 +17,7 @@
     /*NEUTRO*/
     --color-azul-grisaco: rgb(143, 148, 167);
     --color-azul-super-oscuro: rgb(29, 30, 37);
+    --color-azul-super-oscuro-nav: rgba(29, 30, 37, 0.9);
     --color-rojo-palido: rgb(255, 239, 234);
     --color-gris-claro: rgb(249, 249, 249);
     --color-gris: #B3B2B7;
@@ -31,6 +32,10 @@ body *{
     overflow-y: hidden;
 }
 
+a{
+    text-decoration: none;
+    color: var(--color-gris-claro);
+}
 .gral-btn{
     background-color: var(--color-rojo-brillante);
     color: var(--color-gris-claro);
@@ -78,19 +83,68 @@ header{
     justify-content: center;
     padding: 2.6rem 0;
 }
-header nav > ul, header nav > button {
+header nav > button {
     display: none;
 }
+
 header nav{
     width: 88%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 header nav img[alt="logo-manage"]{
     width: 7.5rem;
     cursor: pointer;
+}
+
+header nav label{
+    position: fixed;
+    right: 6vw;
+    z-index: 998;
+    transition: all 0.4s;
+}
+
+header nav .arrow{
+    font-size: 2rem;
+    top: 3vh;
+    opacity: 0;
+}
+
+header nav input{
+    display: none;
+}
+
+header nav ul{
+    background-color: var(--color-azul-super-oscuro-nav);
+    width: 40vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    right: -50vw;
+    transition: all 0.4s;
+    z-index: 999;
+}
+
+header nav ul > li{
+    width: 80%;
+    margin: 2rem auto;
+}
+
+ /*FUNCIONALIDAD HAMBURGER*/
+header nav input:checked ~ .arrow{
+    opacity: 1;
+    right: 42vw;
+}
+
+header nav input:checked ~ .icon-hbr{
+    opacity: 0;
+}
+
+header nav input:checked ~ ul{
+    right: 0;
 }
 /**************MAIN****************/
 /*SECTION 1*/
@@ -174,12 +228,14 @@ main .first-section .third-text > div > div{
     gap: 0.7rem;
 }
 
-main .first-section .third-text > div > div button{
+main .first-section .third-text > div > div > button{
     box-shadow: 64rem 0 0 62rem var(--color-rojo-palido);
 }
 
-main .first-section .third-text > div > div h4{
+main .first-section .third-text > div > div > h4{
     color: var(--color-azul-oscuro);
+    position:relative;
+    z-index: 1;
 }
 
 /*SECTION 2*/
@@ -404,7 +460,8 @@ footer > p{
         margin-bottom: 2.5rem;
     }
 
-    header nav img[alt="icon-hamburger"]{
+    header nav label,
+    header nav input{
         display: none;
     }
 
@@ -421,17 +478,24 @@ footer > p{
     }
     
     header nav > ul {
+        position: static;
+        width: fit-content;
+        height: fit-content;
+        background-color: #ffffff00;
         display: flex;
         gap: 3rem;
     }
 
     header nav > ul > li{
-        color: var(--color-azul-oscuro);
-        transition: color 0.2s;
-        cursor: pointer;
+        width: fit-content;
     }
 
-    header nav > ul > li:hover{
+    header nav > ul > li > a{
+        color: var(--color-azul-oscuro);
+        transition: color 0.2s;
+    }
+
+    header nav > ul > li > a:hover{
         color: var(--color-azul-grisaco);
     }
 
@@ -561,8 +625,8 @@ footer > p{
     main .third-section > img:nth-child(2){
         width: 100%;
         display: block;
-        top: 0;
-        left: 0;
+        top: -14vh;
+        left: 14vw;
         z-index: 0;
     }
 
@@ -593,10 +657,9 @@ footer > p{
         width: fit-content;
         margin: 1.2rem 0;
         transition: color 0.2s;
-        cursor: pointer;
     }
 
-    footer .list-container > div > ul >  li:hover{
+    footer .list-container > div > ul > li > a:hover{
         color: var(--color-rojo-brillante);
     }
 
@@ -631,7 +694,7 @@ footer > p{
 
     footer > p{
         position: absolute;
-        bottom: 20%;
+        bottom: 18%;
         right: 8%;
     } 
 }
